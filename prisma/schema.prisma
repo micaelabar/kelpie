@@ -12,3 +12,13 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Kelpie {
+  id            Int       @id @default(autoincrement())
+  name          String     @unique
+  description   String?
+  lastSee       String
+  countlastSee  Int        @default(1)
+  extinct       Boolean    @default(false)
+  live          Int        @default(100)
+}
